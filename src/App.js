@@ -68,7 +68,7 @@ class App extends Component {
     onButtonSubmit = () => {
         this.setState({ imageUrl: this.state.input });
 
-        fetch("http://localhost:3001/imageurl", {
+        fetch("https://secret-eyrie-02635.herokuapp.com/imageurl", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -80,9 +80,11 @@ class App extends Component {
                 // console.log("hi", response);
                 // console.log("USER ID: ", this.state.user.id);
                 if (response) {
-                    fetch("http://localhost:3001/image", {
+                    fetch("https://secret-eyrie-02635.herokuapp.com/image", {
                         method: "put",
-                        headers: { "Content-Type": "application/json" },
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
                         body: JSON.stringify({
                             id: this.state.user.id,
                         }),
